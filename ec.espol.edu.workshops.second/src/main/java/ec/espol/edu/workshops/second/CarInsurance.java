@@ -31,12 +31,12 @@ public class CarInsurance {
 	
 	public void setSex(String sex)
     {
-      this.sex=sex;
+			this.sex=sex;
     }
 	
 	public void setMarrial_Status(String marrial_Status)
     {
-      this.marrial_Status=marrial_Status;
+			this.marrial_Status=marrial_Status;
     }
 	
 	public void setAge(int age)
@@ -49,6 +49,28 @@ public class CarInsurance {
       this.license = license;
     }
 	
+	public int calculo(int age, String sex, String marrial_Status) {
+		int pbase=500;
+		if(sex.equals("M") && marrial_Status.equals("not married") && age<25  ) {
+			pbase=pbase+1500;
+			return pbase;
+		}
+		else if(sex.equals("F") || marrial_Status.equals("married") && age<25  ) {
+			pbase=pbase-200;
+			return pbase;
+		}
+		
+		else if(age>45 && age<65  ) {
+			pbase=pbase-100;
+			return pbase;
+		}
+		else if (age>80) {
+			return -1;
+		}
+		else
+			return -1;
+		
+	}
 	
 	
 	
