@@ -1,5 +1,6 @@
 package ec.espol.edu.workshops.second;
 
+
 public class CarInsurance {
 	
 	private int age;
@@ -8,6 +9,12 @@ public class CarInsurance {
 	private int license;
 	final int premium=500;
 	
+	public CarInsurance(String sex, int age, String marrial_Status) {
+		super();
+		this.sex = sex;
+		this.age = age;
+		this.marrial_Status = marrial_Status;
+	}
 	
 	public String getSex()
     {
@@ -49,18 +56,18 @@ public class CarInsurance {
       this.license = license;
     }
 	
-	public int calculo(int age, String sex, String marrial_Status) {
+	public int calculo() {
 		int pbase=500;
-		if(sex.equals("M") && marrial_Status.equals("not married") && age<25  ) {
+		if(this.sex.equals("M") && this.marrial_Status.equals("not married") && this.age<25  ) {
 			pbase=pbase+1500;
 			return pbase;
 		}
-		else if(sex.equals("F") || marrial_Status.equals("married") && age<25  ) {
+		else if(this.sex.equals("F") || this.marrial_Status.equals("married") && this.age<25  ) {
 			pbase=pbase-200;
 			return pbase;
 		}
 		
-		else if(age>45 && age<65  ) {
+		else if(this.age>45 && this.age<65  ) {
 			pbase=pbase-100;
 			return pbase;
 		}
@@ -71,6 +78,8 @@ public class CarInsurance {
 			return -1;
 		
 	}
+	
+	
 	
 	
 	
