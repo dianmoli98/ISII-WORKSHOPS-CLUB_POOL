@@ -6,7 +6,7 @@ public class CarInsurance {
 	private String sex;
 	private String marrial_Status;
 	private int license;
-	final int premium=500;
+	static final int premium=500;
 	
 	
 	public String getSex()
