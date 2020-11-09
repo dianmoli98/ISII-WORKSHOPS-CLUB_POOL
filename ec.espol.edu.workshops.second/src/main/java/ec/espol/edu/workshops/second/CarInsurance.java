@@ -1,68 +1,87 @@
 package ec.espol.edu.workshops.second;
 
+
 public class CarInsurance {
-
-  private int age;
-  private String sex;
-  private String marrialstatus;
-  private int license;
-  static final int premium = 500;
-
-  public String getSex() {
-    return sex;
-  }
-  
-  public String getMarrial_Status() {
-    return marrialstatus;
-  }
-  
-  public int getAge() {
-    return age;
-  }
-  
-  public int getLicense() {
-    return license;
-  }
-  
-  public void setSex(String sex) {
-    this.sex = sex;
-  }
-  
-  public void setMarrial_Status(String marrialstatus) {
-    this.marrialstatus = marrialstatus;
-  }
-  
-  public void setAge(int age) {
-    this.age = age;
-  }
-  
-  public void setLicense(int license) {
-    this.license = license;
-  }
-  
-  
-  /**
-   * Saca el calculo.
-   * @param age edad
-   * @param sex el sexo
-   * @param marrialstatus el estado 
-   * @return int un numero
-   */
-  public int calculo(int age, String sex, String marrialstatus) {
-    int pbase = 500;
-    if (sex.equals("M") && marrialstatus.equals("not married") && age < 25) {
-      pbase = pbase + 1500;
-      return pbase;
-    } else if (sex.equals("F") || marrialstatus.equals("married") && age < 25) {
-      pbase = pbase - 200;
-      return pbase;
-    } else if (age > 45 && age < 65) {
-      pbase = pbase - 100;
-      return pbase;
-    } else if (age > 80) {
-      return -1;
-    } else {
-      return -1;
+	//clase que car, con su constructor
+	private int age;  
+	private String marrial_Status, sex;  
+	private boolean license = false ;
+	final int premium=500;
+	
+	public CarInsurance(String sex, int age, String marrial_Status ,boolean license) {
+		super();
+		this.sex = sex;
+		this.age = age;
+		this.marrial_Status = marrial_Status;
+		this.license = license ;
+	}
+	
+	public String getSex()
+    {
+            return sex;
     }
-  }
+	
+	public String getMarrial_Status()
+    {
+            return marrial_Status;
+    }
+	
+	public int getAge()
+    {
+            return age;
+    }
+	
+	public void getLicense(boolean license) {
+		this.license = license ;
+	}
+	
+	public void setSex(String sex)
+    {
+			this.sex=sex;
+    }
+	
+	public void setMarrial_Status(String marrial_Status)
+    {
+			this.marrial_Status=marrial_Status;
+    }
+	
+	public void setAge(int age)
+    {
+      this.age = age;
+    }
+	
+	public void setLicense(boolean license) {
+		this.license = license ;
+	}
+	
+	public int calculo() {
+		int pbase=500;
+		if( (this.age > 80) || !license) {
+			return -1 ;
+		}
+		if(this.sex.equals("M") && this.marrial_Status.equals("not married") && this.age<25  ) {
+			pbase=pbase+1500;
+			//System.out.println("condicion 1");
+		}
+		if(this.sex.equals("F") || this.marrial_Status.equals("married") ) {
+			pbase=pbase-200;
+			//System.out.println("condicion 2");
+		}
+		
+		if(this.age>=45 && this.age<65  ) {
+			pbase=pbase-100;
+			//System.out.println("condicion 3");
+			
+		}
+		if (age>80) {
+			return -1;
+		}
+		return pbase;
+		
+	}
+	
+	
+	
+	
+	
 }
