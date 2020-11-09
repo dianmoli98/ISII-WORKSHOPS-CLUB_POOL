@@ -1,11 +1,12 @@
 package ec.espol.edu.workshops.second;
 
 public class CarInsurance {
+
   private int age;
   private String sex;
   private String marrialstatus;
   private int license;
-  final int premium = 500;
+  static final int premium = 500;
 
   public String getSex() {
     return sex;
