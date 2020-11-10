@@ -2,7 +2,7 @@ package ec.espol.edu.workshops.second;
 
 
 public class CarInsurance {
-	//clase que car, con su constructor
+	
 	private int age;  
 	private String marrial_Status, sex;  
 	private boolean license = false ;
@@ -12,7 +12,7 @@ public class CarInsurance {
 		super();
 		this.sex = sex;
 		this.age = age;
-		this.marrial_Status = marrial_Status;
+		this.marrial_Status = limpiarEspacio(marrial_Status.toLowerCase());
 		this.license = license ;
 	}
 	
@@ -54,12 +54,18 @@ public class CarInsurance {
 		this.license = license ;
 	}
 	
+	public String limpiarEspacio(String palabra) {
+		String estado_casado = palabra.replaceAll("\\s+", "");
+		return estado_casado;
+
+	}
+	
 	public int calculo() {
 		int pbase=500;
 		if( (this.age > 80) || !license) {
 			return -1 ;
 		}
-		if(this.sex.equals("M") && this.marrial_Status.equals("not married") && this.age<25  ) {
+		if(this.sex.equals("M") && this.marrial_Status.equals("notmarried") && this.age<25  ) {
 			pbase=pbase+1500;
 			//System.out.println("condicion 1");
 		}
