@@ -2,13 +2,12 @@ package ec.espol.edu.workshops.second;
 
 
 public class CarInsurance {
-	
 	private int age;  
 	private String marrial_Status, sex;  
 	private boolean license = false ;
 	final int premium=500;
 	
-	public CarInsurance(String sex, int age, String marrial_Status ,boolean license) {
+	public CarInsurance(String sex , int age , String marrial_Status , boolean license) {
 		super();
 		this.sex = sex;
 		this.age = age;
@@ -16,13 +15,10 @@ public class CarInsurance {
 		this.license = license ;
 	}
 	
-	public String getSex()
-    {
-            return sex;
-    }
+public String getSex(){
+  return sex;}
 	
-	public String getMarrial_Status()
-    {
+	public String getMarrial_Status(){
             return marrial_Status;
     }
 	
@@ -61,12 +57,12 @@ public class CarInsurance {
 	}
 	
 	public int calculo() {
-		int pbase=500;
+		int pbase = 500;
 		if( (this.age > 80) || !license) {
 			return -1 ;
 		}
-		if(this.sex.equals("M") && this.marrial_Status.equals("notmarried") && this.age<25  ) {
-			pbase=pbase+1500;
+		if(this.sex.equals("M") && this.marrial_Status.equals("notmarried") && this.age < 25  ) {
+			pbase=pbase + 1500;
 			//System.out.println("condicion 1");
 		}
 		if(this.sex.equals("F") || this.marrial_Status.equals("married") ) {
@@ -74,12 +70,12 @@ public class CarInsurance {
 			//System.out.println("condicion 2");
 		}
 		
-		if(this.age>=45 && this.age<65  ) {
+		if(this.age >= 45 && this.age < 65  ) {
 			pbase=pbase-100;
 			//System.out.println("condicion 3");
 			
 		}
-		if (age>80) {
+		if (age > 80) {
 			return -1;
 		}
 		return pbase;
