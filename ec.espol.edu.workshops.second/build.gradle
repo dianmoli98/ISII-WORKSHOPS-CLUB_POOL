@@ -28,9 +28,10 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
  	testImplementation 'io.cucumber:cucumber-junit:6.8.1'
+ 	testImplementation 'io.cucumber:cucumber-java:6.8.1'
 }
 
-configurations {
+configurations { 
  	cucumberRuntime {
  	extendsFrom testImplementation
  }
@@ -40,8 +41,7 @@ task cucumber() {
  	doLast {
  	javaexec {
  	main = "io.cucumber.core.cli.Main"
- 	classpath = configurations.cucumberRuntime + sourceSets.main.output
-	+ sourceSets.test.output
+ 	classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
  	args = ['--plugin', 'pretty','--monochrome','--plugin',
 	'html:build/reports/cucumber-report.html','--glue', 'ec.espol.edu.workshops.second',
 	'src/test/resources/ec.espol.edu.workshops.second/']

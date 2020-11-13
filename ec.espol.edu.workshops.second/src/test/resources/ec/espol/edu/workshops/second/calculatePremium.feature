@@ -2,7 +2,7 @@ Feature: Do you meet the age requirement?
  Scenario: Those over 80 years old do not meet the prerequisite.
  Given the customer is 82 years old
  When your age is entered
- Then they should tell me "Not suitable"
+ Then show -1
 
  Scenario outline: Do you meet the requirement or not?
   Given the client is "<age>" years old
@@ -11,7 +11,7 @@ Feature: Do you meet the age requirement?
  Examples:
   | age | answer |
   | <80 | Suitable |
-  | > 80 | Not suitable |
+  | > 80 | -1 |
   | = 80 | Suitable |
 
  
@@ -22,8 +22,9 @@ Feature: Calculation of the insurance premium of a customer
  Then the value of the premium will be 200.
 
  Scenario outline: Meet these conditions or not??
-  Given the client is <age> years old and <status_married>
-  When the insurance premium is calculated.
+  Given the client is <age> years old 
+  And <status_married> is married
+  When the insurance  is calculated
   Then the value of the premium will be <answer>.
  Examples:
   | age | status_married | answer |
@@ -32,21 +33,21 @@ Feature: Calculation of the insurance premium of a customer
   | anything else! | anything else! | -1 |
   
   
-Feature: Validate the input of ages
- Scenario: Registering ages for the insurance prime 
- Given the user inputs letters  in the age field.
- When you enter the data in age 
+Feature: Validate license
+ Scenario: Registering license for the insurance prime 
+ Given the user inputs license false  in the invalid license field.
+ When you enter the data in license 
  Then they should show -1 
 
-Scenario outline: Successful age entry?
- Given the user inputs <data> in the age field.
-  When you enter the data in age 
+Scenario outline: the client has an invalid license
+ Given the user inputs <data> in the license field.
+  When you enter the data in license 
  Then they should show <answer>
 Examples:
- | data | answer |
- | inputs letters | -1|
- | mix of letters and numbers | -1 |
- | numbers | 1 |
+ | license | answer |
+ | false | -1|
+ | true | positive number |
+
  
  
 
