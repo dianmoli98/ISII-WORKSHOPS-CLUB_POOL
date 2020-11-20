@@ -6,6 +6,14 @@ public class CarInsurance {
 	private String marrial_Status, sex;  
 	private boolean license = false ;
 	final int premium=500;
+	private double d;
+	public CarInsurance(String sex , double d , String marrial_Status , boolean license) {
+		super();
+		this.sex = sex;
+		this.d = d;
+		this.marrial_Status = limpiarEspacio(marrial_Status.toLowerCase());
+		this.license = license ;
+	}
 	
 	public CarInsurance(String sex , int age , String marrial_Status , boolean license) {
 		super();
@@ -56,9 +64,27 @@ public String getSex(){
 
 	}
 	
+	public  int ingresoInt(int x) { 
+		
+	        return x;
+	    }
 	public int calculo() {
 		int pbase = 500;
-		if( (this.age > 80) || !license) {
+		int e= ingresoInt(this.age);
+	
+		if(e==0) {
+			return -1;
+		}
+		
+		if(!(this.sex.equals("F"))&&(!this.sex.equals("M"))) {
+			return -1;
+		}
+		if(!(this.marrial_Status.equals("married"))  && !(this.marrial_Status.equals("notmarried"))) {
+			return -1;
+		}
+		
+		if((this.age > 80) || !license) {
+			
 			return -1 ;
 		}
 		if(this.sex.equals("M") && this.marrial_Status.equals("notmarried") && this.age < 25  ) {
@@ -75,12 +101,10 @@ public String getSex(){
 			//System.out.println("condicion 3");
 			
 		}
-		if (age > 80) {
-			return -1;
-		}
-		return pbase;
 		
-	}
+		return pbase;
+		}
+	
 	
 	
 	
