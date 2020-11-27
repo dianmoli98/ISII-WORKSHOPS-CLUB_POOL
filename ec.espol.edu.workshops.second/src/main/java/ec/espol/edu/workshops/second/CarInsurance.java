@@ -87,6 +87,10 @@ public String getSex(){
 			
 			return -1 ;
 		}
+		if(this.age < 18) {
+			
+			return -1 ;
+		}
 		if(this.sex.equals("M") && this.marrial_Status.equals("notmarried") && this.age < 25  ) {
 			pbase=pbase + 1500;
 			//System.out.println("condicion 1");
