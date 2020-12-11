@@ -61,7 +61,7 @@ public class CarInsurance {
 	}
 	
 	public int calculo() {
-		int pbase=500;
+		int pbase=600;
 		if( (this.age > 80) || !license) {
 			return -1 ;
 		}
