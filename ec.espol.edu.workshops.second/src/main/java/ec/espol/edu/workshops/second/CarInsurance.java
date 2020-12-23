@@ -31,8 +31,8 @@ public class CarInsurance {
             return age;
     }
 	
-	public void getLicense(boolean license) {
-		this.license = license ;
+	public boolean getLicense() {
+		return license;
 	}
 	
 	public void setSex(String sex)

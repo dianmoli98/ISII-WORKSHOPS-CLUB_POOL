@@ -14,7 +14,15 @@ public class PathCoverageTest {
 		pbase = primero.calculo();
 		assertEquals(-1, pbase, 0.0);
 	}
-		
+	
+	//test id 1a
+	@Test
+	public void TestFirsta() {
+		CarInsurance primero = new CarInsurance("F",81,"Married", true);
+		pbase = primero.calculo();
+		assertEquals(-1, pbase, 0.0);
+	}
+	
 	//test id 2
 	@Test
 	public void TestSecond() {
@@ -38,5 +46,29 @@ public class PathCoverageTest {
 		CarInsurance cuarto = new CarInsurance("M",70,"notmarried", true);
 		pbase = cuarto.calculo();
 		assertEquals(600, pbase, 0.0);
+	}
+	
+	//test id 5
+	@Test
+	public void TestFifth() {
+		CarInsurance quinto = new CarInsurance("F",30,"notmarried", true);
+		pbase = quinto.calculo();
+		assertEquals(400, pbase, 0.0);
+	}
+	
+	//test id 5a
+	@Test
+	public void TestFiftha() {
+		CarInsurance quinto = new CarInsurance("M",30,"married", true);
+		pbase = quinto.calculo();
+		assertEquals(400, pbase, 0.0);
+	}
+		
+	//test id 6
+	@Test
+	public void TestSixth() {
+		CarInsurance sexto = new CarInsurance("M",55,"notmarried", true);
+		pbase = sexto.calculo();
+		assertEquals(500, pbase, 0.0);
 	}
 }

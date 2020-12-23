@@ -30,4 +30,18 @@ public class StatementCoverageTest {
 		assertEquals(300, pbase, 0.0);
 		
 	}
+	
+	//test id 4
+	@Test
+	public void TestSetGet() {
+		CarInsurance quinto = new CarInsurance("M",60,"notmarried",true);
+		quinto.setAge(50);
+		quinto.setSex("F");
+		quinto.setMarrial_Status("married");
+		quinto.setLicense(false);
+		assertEquals(quinto.getSex(), "F");
+		assertEquals(quinto.getAge(), 50);
+		assertEquals(quinto.getMarrial_Status(), "married");
+		assertEquals(quinto.getLicense(), false);
+	}
 }

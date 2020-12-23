@@ -42,17 +42,16 @@ public class BranchCoverageTest {
 	
 	//test id 5
 	@Test
-	public void TestFifth() {
-		CarInsurance quinto = new CarInsurance("F",30,"notmarried", true);
-		pbase = quinto.calculo();
-		assertEquals(600, pbase, 0.0);
+	public void TestSetGet() {
+		CarInsurance quinto = new CarInsurance("M",60,"notmarried",true);
+		quinto.setAge(50);
+		quinto.setSex("F");
+		quinto.setMarrial_Status("married");
+		quinto.setLicense(false);
+		assertEquals(quinto.getSex(), "F");
+		assertEquals(quinto.getAge(), 50);
+		assertEquals(quinto.getMarrial_Status(), "married");
+		assertEquals(quinto.getLicense(), false);
 	}
-		
-	//test id 6
-	@Test
-	public void TestSixth() {
-		CarInsurance sexto = new CarInsurance("M",55,"notmarried", true);
-		pbase = sexto.calculo();
-		assertEquals(600, pbase, 0.0);
-	}
+	
 }
