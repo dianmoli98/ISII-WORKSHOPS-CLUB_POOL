@@ -78,10 +78,7 @@ public class CarInsurance {
 			pbase=pbase-100;
 			//System.out.println("condicion 3");
 			
-		}
-		if (age>80) {
-			return -1;
-		}
+		}	
 		return pbase;
 		
 	}
