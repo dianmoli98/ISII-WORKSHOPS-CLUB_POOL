@@ -75,6 +75,10 @@ public String getSex(){
 			//System.out.println("condicion 3");
 			
 		}
+		//new request 
+		if(this.sex.equals("M") && this.age > 25 && this.age < 45 ) {
+			pbase=pbase-100;
+		}
 		if (age > 80) {
 			return -1;
 		}
